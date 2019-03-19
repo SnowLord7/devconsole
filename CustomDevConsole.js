@@ -23,7 +23,7 @@ var html = `
 				</div>
 			</div>
 			<div class="snowlord-devConsole-container-body-console-commands">
-				<textarea id="snowlord-devConsole-container-body-console-input" placeholder="console.log('Hello World!');" style="width: 100%; height: 90%; outline: none; border: none;"></textarea>
+				<textarea id="snowlord-devConsole-container-body-console-input" placeholder="console.log('Hello World!');" style="resize: horizontal; position: sticky; width: 100%; height: 90%; outline: none; border: none;"></textarea>
 			</div>
 		</div>
 		
