@@ -13,6 +13,8 @@ var html = `
 	<div class="snowlord-devConsole-container-body">
 		<div class="snowlord-devConsole-container-body-elements hidden">
 			<h3 style="border-bottom: 2px solid #000;">Elements</h3>
+            <div class="snowlord-devConsole-container-body-elements-container" style="white-space: pre; width: 100%; height: 200px; overflow: scroll;">
+            </div>
 		</div>
 		
 		<div class="snowlord-devConsole-container-body-console hidden">
@@ -33,21 +35,21 @@ var html = `
 				<div class="snowlord-devConsole-container-body-sources-scripts-container" style="float: left; width: 60%; background-color: #bababa;">
 					<ul style="float: left; width: 26%; padding: 3%; margin: 0;">
 						<li>Scripts</li>
-						<ul class="snowlord-devConsole-container-body-sources-other" style="padding: 3px; overflow: hidden; overflow-y: scroll; height: 100%; background-color: #e0e0e0;">
+						<ul class="snowlord-devConsole-container-body-sources-other" style="padding: 3px; height: 120px; overflow:hidden; overflow-y:scroll; background-color: #e0e0e0;">
 							<li>Main.js</li>
 							<li>Script.js</li>
 						</ul>
 					</ul>
 					<ul style="float: left; width: 26%; padding: 3%; margin: 0;">
 						<li>Styles</li>
-						<ul class="snowlord-devConsole-container-body-sources-styles" style="padding: 3px; overflow: hidden; overflow-y: scroll; height: 100%; background-color: #e0e0e0;">
+						<ul class="snowlord-devConsole-container-body-sources-styles" style="padding: 3px; height: 120px; overflow:hidden; overflow-y:scroll; background-color: #e0e0e0;">
 							<li>Main.css</li>
 							<li>Style.css</li>
 						</ul>
 					</ul>
 					<ul style="float: left; width: 26%; padding: 3%; margin: 0;">
 						<li>All</li>
-						<ul class="snowlord-devConsole-container-body-sources-main" style="padding: 3px; overflow: hidden; overflow-y: scroll; height: 100%; background-color: #e0e0e0;">
+						<ul class="snowlord-devConsole-container-body-sources-main" style="padding: 3px; height: 120px; overflow:hidden; overflow-y:scroll; background-color: #e0e0e0;">
 							<li>Index.js</li>
 							<li>Style.js</li>
 						</ul>
@@ -488,18 +490,17 @@ var tooltip = `
 		}
 		
 		for (let i = 0; i < document.getElementsByTagName("script").length; i++) {
-			if (document.getElementsByTagName("script")[i].src && document.getElementsByTagName("script")[i].src.indexOf(window.location.host) != -1) {
+			if (document.getElementsByTagName("script")[i].src) {
 				main.innerHTML += '<li><a onclick=\'document.getElementsByClassName("snowlord-devConsole-container-body-sources-scripts-preview-frame")[0].src = this.href;\' target="_blank" href=' + document.getElementsByTagName("script")[i].src + '>' + document.getElementsByTagName("script")[i].src.split("/").pop() + '</a></li>';
 			}
 		}
 		
 		for (let i = 0; i < document.getElementsByTagName("link").length; i++) {
-			if (document.getElementsByTagName("link")[i].rel = "stylesheet") {
+			if (document.getElementsByTagName("link")[i].rel == "stylesheet") {
 				other.innerHTML += '<li><a onclick=\'document.getElementsByClassName("snowlord-devConsole-container-body-sources-scripts-preview-frame")[0].src = this.src;\' target="_blank" href=' + document.getElementsByTagName("link")[i].href + '>' + document.getElementsByTagName("link")[i].href.split("/").pop() + '</a></li>';
 			}
 		}
 	});
+
+    document.getElementsByClassName('snowlord-devConsole-container-body-elements-container')[0].textContent = document.body.innerHTML.replace(/<\/\w+>/g, (e) => e + '\r\n');
 })();
-
-
-
