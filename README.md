@@ -8,7 +8,7 @@
 - [ ] Add More Tools
 
 # Notes
-The Custom Developer Console isn't perfect, many sites disable 
+My custom Developer Console isn't perfect, some secure sites disable inline-scripts, which breaks the console.
 
 # Instructions
 **Instructions without Console (Blocked by School, etc)**
