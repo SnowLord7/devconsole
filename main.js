@@ -1,4 +1,9 @@
 (() => {
+    alt = document.createElement("iframe");
+    alt.display = 'none';
+    document.body.appendChild(alt);
+    window2 = alt.contentWindow;
+    if((typeof localStorage)==='undefined')localStorage = window2.localStorage;
     function downloadSiteInfo(filename, text) {
         let elem = document.createElement('a');
         elem.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
